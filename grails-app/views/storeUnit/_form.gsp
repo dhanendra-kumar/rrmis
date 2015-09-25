@@ -1,0 +1,49 @@
+<%@ page import="com.rrmis.StoreUnit" %>
+
+
+
+<div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'code', 'error')} required">
+	<label for="code">
+		<g:message code="storeUnit.code.label" default="Code" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="code" required="" value="${storeUnitInstance?.code}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'name', 'error')} required">
+	<label for="name">
+		<g:message code="storeUnit.name.label" default="Name" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="name" required="" value="${storeUnitInstance?.name}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'rack', 'error')} ">
+	<label for="rack">
+		<g:message code="storeUnit.rack.label" default="Rack" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${storeUnitInstance?.rack?}" var="r">
+    <li><g:link controller="rack" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="rack" action="create" params="['storeUnit.id': storeUnitInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'rack.label', default: 'Rack')])}</g:link>
+</li>
+</ul>
+
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'recordRoom', 'error')} required">
+	<label for="recordRoom">
+		<g:message code="storeUnit.recordRoom.label" default="Record Room" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="recordRoom" name="recordRoom.id" from="${com.rrmis.RecordRoom.list()}" optionKey="id" required="" value="${storeUnitInstance?.recordRoom?.id}" class="many-to-one"/>
+
+</div>
+
