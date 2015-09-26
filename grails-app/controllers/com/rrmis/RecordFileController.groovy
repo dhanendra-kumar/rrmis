@@ -111,4 +111,16 @@ class RecordFileController {
     def consignFileForm(Long id) {
         render template: "consignFileForm", model: [shelveId: id]
     }
+
+    def generalRegister() {
+        List<RecordFile> recordFileInstanceList = RecordFile.findAllByStatusInList([Status.DRAFT, Status.SENT_TO_RECORD_ROOM, Status.DISTROY], [max: params.max?: 10, offset: params.offset ?: 0])
+        Long recordFileInstanceCount = RecordFile.countByStatusInList([Status.DRAFT, Status.SENT_TO_RECORD_ROOM, Status.DISTROY])
+        render view: "index", model: [recordFileInstanceList: recordFileInstanceList, recordFileInstanceCount: recordFileInstanceCount, heading: "General Register"]
+    }
+
+    def issuedRegister() {
+        List<RecordFile> recordFileInstanceList = RecordFile.findAllByStatus(Status.ISSUED, [max: params.max?: 10, offset: params.offset ?: 0])
+        Long recordFileInstanceCount = RecordFile.countByStatus(Status.ISSUED)
+        render view: "index", model: [recordFileInstanceList: recordFileInstanceList, recordFileInstanceCount: recordFileInstanceCount, heading: "Issued Register"]
+    }
 }

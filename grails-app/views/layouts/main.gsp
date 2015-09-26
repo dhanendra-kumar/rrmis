@@ -114,147 +114,80 @@
                         </a>
                     </li>
 
-                <sec:ifAnyGranted roles="BRANCH_CLERK">
+                <sec:ifAnyGranted roles="SUPER_ADMIN,BRANCH_CLERK">
                     <li>
                         <a href="${createLink(controller: "recordFile", action: "consignFile")}">
                             <i class="halflings-icon white file"></i><span class="hidden-tablet"> Consign File</span></a>
                     </li>
                 </sec:ifAnyGranted>
 
-                <sec:ifAnyGranted roles="BRANCH_ADMIN,BRANCH_CLERK">
-                    <li>
-                        <a href="?route=messages&type=inword"><i class="halflings-icon white inbox"></i>
-                        <span class="hidden-tablet"> Inbox</span>
-                        <span class="label label-important" id="inbox-notify"></span>
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
-                    <li>
-                        <a href="?route=messages&type=inword"><i class="icon-envelope"></i>
-                            <span class="hidden-tablet">Inword</span>
-
-                            <span class="label label-important" id="inbox-notify"><?php echo count($inword);?></span>
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
-                    <li>
-                        <a href="?route=messages&type=outword"><i class="icon-share"></i>
-                            <span class="hidden-tablet">Outword</span>
-
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="RECORD_ROOM_CLERK">
-                    <li>
-                        <a href="#">
-                            <i class="icon-print"></i>
-                            <span class="hidden-tablet">Print Slip</span>
-
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="BRANCH_ADMIN,BRANCH_CLERK">
-                    <li>
-                        <a href="#">
-                            <i class="halflings-icon white envelope"></i>
-                            <span class="hidden-tablet">Sent Mail</span>
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="BRANCH_ADMIN,RECORD_ROOM_ADMIN">
-                    <li>
-                        <a href="#">
-                            <i class="halflings-icon white cog"></i><span class="hidden-tablet"> Permisssion Grant</span>
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="RECORD_ROOM_ADMIN">
+                <sec:ifAnyGranted roles="SUPER_ADMIN,RECORD_ROOM_ADMIN">
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Manage Location</span></a>
                         <ul>
-                            <li><a class="submenu" href="?route=storing-unit&token=<?php echo $userFunction->_EncodeUrl('add');?>"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Storing Units</span></a></li>
-                            <li><a class="submenu" href="?route=rack-creation&token=<?php echo $userFunction->_EncodeUrl('add');?>"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Racks/Almira</span></a></li>
-                            <li><a class="submenu" href="?route=shelf-creation&token=<?php echo $userFunction->_EncodeUrl('add');?>"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Shelf</span></a></li>
+                            <li>
+                                <a class="submenu" href="${createLink(controller: "storeUnit", action: "index")}">
+                                    <i class="halflings-icon white user"></i>
+                                    <span class="hidden-tablet"> Storing Units</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="submenu" href="${createLink(controller: "rack", action: "index")}">
+                                    <i class="halflings-icon white user"></i>
+                                    <span class="hidden-tablet"> Racks/Almira</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="submenu" href="${createLink(controller: "shelve", action: "index")}">
+                                    <i class="halflings-icon white user"></i>
+                                    <span class="hidden-tablet"> Shelve</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </sec:ifAnyGranted>
 
 
                     <li>
-                        <a class="dropmenu" href="#"><i class="halflings-icon white th-list"></i><span class="hidden-tablet"> View Menus</span></a>
+                        <a class="dropmenu" href="#"><i class="halflings-icon white th-list"></i><span class="hidden-tablet"> File Register</span></a>
                         <ul>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> General Register </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white list"></i><span class="hidden-tablet"> Issued Register </span></a></li>
-                        <sec:ifAnyGranted roles="RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
-                            <li><a class="submenu" href="#"><i class="halflings-icon white time"></i><span class="hidden-tablet"> Dispose Register </span></a></li>
-                        </sec:ifAnyGranted>
+                            <li>
+                                <a class="submenu" href="${createLink(controller: "recordFile", action: "generalRegister")}">
+                                    <i class="halflings-icon white user"></i>
+                                    <span class="hidden-tablet"> General Register </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="submenu" href="${createLink(controller: "recordFile", action: "issuedRegister")}">
+                                    <i class="halflings-icon white list"></i>
+                                    <span class="hidden-tablet"> Issued Register </span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
 
-                <sec:ifAnyGranted roles="BRANCH_ADMIN">
-                    <li>
-                        <a href="#">
-                            <i class="icon-list-alt"></i>
-                            <span class="hidden-tablet"> Re Classification</span>
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="BRANCH_CLERK">
+                <sec:ifAnyGranted roles="SUPER_ADMIN,BRANCH_CLERK">
                     <li>
                         <a class="dropmenu" href="#"><i class="halflings-icon white list-alt"></i><span class="hidden-tablet"> Reports</span></a>
                         <ul>
-                            <li><a class="submenu" href="?route=reports/detail/detailed-consign-reports&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Consigned Detail Reports  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/detail/due-disposal-report&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Due Disposal Register  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/detail/disposed-report&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposed File Register  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Consigned Detail Reports  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Due Disposal Register  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposed File Register  </span></a></li>
                         </ul>
                     </li>
                 </sec:ifAnyGranted>
 
-                <sec:ifAnyGranted roles="RECORD_ROOM_CLERK">
-                    <li>
-                        <a class="dropmenu" href="#"><i class="icon-list"></i><span class="hidden-tablet"> Backlogs</span></a>
-                        <ul>
-                            <li><a class="submenu" href="?route=offline/add-file&token=<?php echo $userFunction->_EncodeUrl('task=add')?>"><i class="halflings-icon white list"></i><span class="hidden-tablet"> Add File </span></a></li>
-                            <li><a class="submenu" href="?route=offline/issue-file&token=<?php echo $userFunction->_EncodeUrl('task=add')?>"><i class="halflings-icon white list"></i><span class="hidden-tablet"> Issued File </span></a></li>
-                            <li><a class="submenu" href="?route=offline/resubmit-file&token=<?php echo $userFunction->_EncodeUrl('task=add')?>"><i class="halflings-icon white list"></i><span class="hidden-tablet"> Re Submission File </span></a></li>
-                            <li><a class="submenu" href="?route=offline/dispose-file&token=<?php echo $userFunction->_EncodeUrl('task=add')?>"><i class="halflings-icon white list"></i><span class="hidden-tablet"> Dispose </span></a></li>
-
-                        </ul>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
+                <sec:ifAnyGranted roles="SUPER_ADMIN,RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Summary Reports</span></a>
                         <ul>
-                            <li><a class="submenu" href="?route=reports/summary/stock-files-summary&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Stock File Summary  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/summary/issue-files-summary&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issue File Summary  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/summary/disposal-due-summary&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposal Due Summary  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/summary/disposal-permission-summary&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposal Permission  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/detail/issued-reports&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issued Detail Reports  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/detail/return-reports&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Return Detail Reports  </span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Register Reports</span></a>
-                        <ul>
-
-                            <li><a class="submenu" href="?route=reports/detail/due-disposal-report&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Due Disposal Register  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/detail/disposed-report&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposed File Register  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/register/detailed-general-register&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Detailed General Register  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/register/issued-file-register&find=all"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issued File Register  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/detail/return-reports&find=all&sid=true"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Returned File Register  </span></a></li>
-                            <li><a class="submenu" href="?route=reports/register/stock-files-register&find=all&sid=true"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Stock File Register  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Stock File Summary  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issue File Summary  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposal Due Summary  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposal Permission  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issued Detail Reports  </span></a></li>
+                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Return Detail Reports  </span></a></li>
                         </ul>
                     </li>
                 </sec:ifAnyGranted>

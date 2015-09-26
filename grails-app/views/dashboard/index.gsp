@@ -69,6 +69,16 @@
         <p>Shelves</p>
         <span class="badge">${shelveCount}</span>
     </a>
+    <a href="${createLink(controller: "recordFile", action: "generalRegister")}" class="quick-button marginTop10 metro green span2">
+        <i class="icon-file"></i>
+        <p>General Files</p>
+        <span class="badge">${generalFilesCount}</span>
+    </a>
+    <a href="${createLink(controller: "recordFile", action: "issuedRegister")}" class="quick-button marginTop10 metro green span2">
+        <i class="icon-share"></i>
+        <p>Issued Files</p>
+        <span class="badge">${issuedFilesCount}</span>
+    </a>
 
     <div class="clearfix"></div>
 </div>

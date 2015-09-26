@@ -17,12 +17,12 @@ class DashboardController {
         Integer rackCount = Rack.count()
         Integer shelveCount = Shelve.count()
         Integer userCount = User.count()
+        Integer generalFilesCount = RecordFile.countByStatusInList([Status.DRAFT, Status.SENT_TO_RECORD_ROOM, Status.DISTROY])
+        Integer issuedFilesCount = RecordFile.countByStatus(Status.ISSUED)
         render view: "index", model: [districtCount: districtCount, subDivisionOfficeCount: subDivisionOfficeCount,
                                       officeCount: officeCount, sectionCount: sectionCount, recordRoomCount: recordRoomCount,
-                                      storeUnitCount: storeUnitCount, rackCount: rackCount, shelveCount: shelveCount, userCount: userCount]
+                                      storeUnitCount: storeUnitCount, rackCount: rackCount, shelveCount: shelveCount,
+                                      userCount: userCount, generalFilesCount: generalFilesCount, issuedFilesCount: issuedFilesCount]
     }
 
-    def index2() {
-        render view: "indexBackup"
-    }
 }
