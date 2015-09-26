@@ -49,7 +49,9 @@
     <asset:javascript src="counter.js"></asset:javascript>
     <asset:javascript src="retina.js"></asset:javascript>
     <asset:javascript src="custom.js"></asset:javascript>
+
     <g:layoutHead/>
+
 </head>
 
 <body>

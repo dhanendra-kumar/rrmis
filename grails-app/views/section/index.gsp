@@ -6,24 +6,41 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'section.label', default: 'Section')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+        <asset:stylesheet src="dataTables.bootstrap.css"></asset:stylesheet>
+        <asset:stylesheet src="jquery.dataTables.css"></asset:stylesheet>
+        <script>
+            jQuery(document).ready(function(){
+                $('#user-list-table').DataTable();
+            });
+        </script>
 	</head>
 	<body>
-		<a href="#list-section" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+            <ul class="breadcrumb">
+                <li>
+                    <a class="btn btn-small btn-primary" href="${createLink(uri: '/')}">
+                        <i class="icon-home"></i>
+                        <g:message code="default.home.label"/>
+                    </a>
+                </li>
+                <sec:ifAnyGranted roles="SUPER_ADMIN">
+                    <li><g:link class="create btn btn-small btn-primary" action="create">
+                        <i class="icon-list-alt"></i>
+                        <g:message code="default.new.label" args="[entityName]" />
+                    </g:link>
+                    </li>
+                </sec:ifAnyGranted>
+            </ul>
 		</div>
 		<div id="list-section" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+            <table class="table table-striped table-bordered bootstrap-datatable" id="user-list-table">
 			<thead>
 					<tr>
-					
+                        <th>Id</th>
 						<g:sortableColumn property="name" title="${message(code: 'section.name.label', default: 'Name')}" />
 					
 						<th><g:message code="section.office.label" default="Office" /></th>

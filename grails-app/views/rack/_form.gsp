@@ -14,9 +14,8 @@
 <div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'baseLocation', 'error')} required">
 	<label for="baseLocation">
 		<g:message code="rack.baseLocation.label" default="Base Location" />
-		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="baseLocation" required="" value="${rackInstance?.baseLocation}"/>
+	<g:textField name="baseLocation" value="${rackInstance?.baseLocation}"/>
 
 </div>
 

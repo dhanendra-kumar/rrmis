@@ -10,10 +10,18 @@
     <div class="nav" role="navigation">
         <ul class="breadcrumb">
             <li>
-                <i class="icon-home"></i>
-                <a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+
+                <a class="btn btn-small btn-primary" href="${createLink(uri: '/')}">
+                    <i class="icon-home"></i>
+                    <g:message code="default.home.label"/>
+                </a>
             </li>
-            <li> > <g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+            <li>
+                <g:link class="btn btn-small btn-primary list" action="index">
+                    <i class="icon-list-alt"></i>
+                    <g:message code="default.list.label" args="[entityName]" />
+                </g:link>
+            </li>
             <sec:ifAnyGranted roles="SUPER_ADMIN">
                 <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
             </sec:ifAnyGranted>

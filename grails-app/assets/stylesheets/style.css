@@ -719,10 +719,10 @@ ul.messages li .message {
 	text-shadow: 1px 1px 0px #fff;
 }
 
-.breadcrumb a {
-	color: #aaa;
-	text-shadow: 0px 1px 1px #fff;	
-}
+/*.breadcrumb a {*/
+	/*color: #aaa;*/
+	/*text-shadow: 0px 1px 1px #fff;	*/
+/*}*/
 
 .breadcrumb a:hover {
 	color: #646464;
