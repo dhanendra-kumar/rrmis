@@ -21,7 +21,7 @@
             <div class="row-fluid span3 fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
                 <div class="span8">
                     <label for="username">
-                        <g:message code="user.password.label" default="Username" />
+                        <g:message code="user.password.label" default="Password" />
                         <span class="required-indicator">*</span>
                     </label>
                 </div>

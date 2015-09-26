@@ -9,6 +9,7 @@ class UserController {
 
     def springSecurityService
 
+    @Secured("hasRole('SUPER_ADMIN')")
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
@@ -17,7 +18,7 @@ class UserController {
     def show(User userInstance) {
         User user = springSecurityService.currentUser as User
         Role role = Role.findByAuthority(Role.SUPER_ADMIN)
-        UserRole userRole = UserRole.findAllByUserAndRole(user, role)
+        UserRole userRole = UserRole.findByUserAndRole(user, role)
         if(userRole){
             respond userInstance
         }

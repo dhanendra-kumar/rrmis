@@ -314,6 +314,12 @@
                             <span class="hidden-tablet"> Shelve</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="${createLink(controller: "user", action: "index")}">
+                            <i class="icon-list-alt"></i>
+                            <span class="hidden-tablet"> User</span>
+                        </a>
+                    </li>
                 </sec:ifAnyGranted>
                 </ul>
 
