@@ -5,7 +5,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Secured("hasRole('SUPER_ADMIN')")
+@Secured("hasAnyRole('SUPER_ADMIN', 'BRANCH_ADMIN', 'BRANCH_CLERK', 'RECORD_ROOM_ADMIN', 'RECORD_ROOM_CLERK')")
 @Transactional(readOnly = true)
 class RackController {
 
@@ -101,5 +101,11 @@ class RackController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def fetchAllRackByStoreUnitId(Long id) {
+        StoreUnit storeUnit = StoreUnit.findById(id)
+        List<Rack> rackList = Rack.findAllByStoreUnit(storeUnit)
+        render view: "selectBox", model: [rackList: rackList]
     }
 }

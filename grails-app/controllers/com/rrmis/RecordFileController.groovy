@@ -5,7 +5,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Secured("hasRole('SUPER_ADMIN')")
+@Secured("hasAnyRole('SUPER_ADMIN', 'BRANCH_ADMIN', 'BRANCH_CLERK', 'RECORD_ROOM_ADMIN', 'RECORD_ROOM_CLERK')")
 @Transactional(readOnly = true)
 class RecordFileController {
 
@@ -35,7 +35,7 @@ class RecordFileController {
             respond recordFileInstance.errors, view:'create'
             return
         }
-
+        recordFileInstance.consignDate = new Date()
         recordFileInstance.save flush:true
 
         request.withFormat {
@@ -101,5 +101,14 @@ class RecordFileController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def consignFile() {
+        List<District> districtList = District.findAll()
+        render(view: "consignFile", model: [districtList: districtList])
+    }
+
+    def consignFileForm(Long id) {
+        render template: "consignFileForm", model: [shelveId: id]
     }
 }

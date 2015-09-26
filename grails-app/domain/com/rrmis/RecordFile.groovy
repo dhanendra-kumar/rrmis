@@ -21,7 +21,7 @@ class RecordFile {
         totalPage nullable: false
         remark nullable: true
         classType nullable: false
-        dateOfFinalDisposal nullable: false
+        dateOfFinalDisposal nullable: true
         status nullable: false
         shelve nullable: true
     }

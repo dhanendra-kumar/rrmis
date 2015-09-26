@@ -114,7 +114,7 @@
 
                 <sec:ifAnyGranted roles="BRANCH_CLERK">
                     <li>
-                        <a href="#">
+                        <a href="${createLink(controller: "recordFile", action: "consignFile")}">
                             <i class="halflings-icon white file"></i><span class="hidden-tablet"> Consign File</span></a>
                     </li>
                 </sec:ifAnyGranted>
@@ -137,14 +137,6 @@
                         </a>
                     </li>
                 </sec:ifAnyGranted>
-
-                    <li>
-                        <a href="#">
-                            <i class="halflings-icon white hdd"></i>
-                            <span class="hidden-tablet">Draft</span>
-                            <span class="label label-important"></span>
-                        </a>
-                    </li>
 
                 <sec:ifAnyGranted roles="RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
                     <li>
@@ -268,56 +260,56 @@
                 <sec:ifAnyGranted roles="SUPER_ADMIN">
                     <li>
                         <a href="${createLink(controller: "district", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-table"></i>
                             <span class="hidden-tablet"> District</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "subDivisionOffice", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-th-list"></i>
                             <span class="hidden-tablet"> Sub Division Office</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "office", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-asterisk"></i>
                             <span class="hidden-tablet"> Office</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "section", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-th-large"></i>
                             <span class="hidden-tablet"> Section</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "recordRoom", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-columns"></i>
                             <span class="hidden-tablet"> Record Room</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "storeUnit", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-download-alt"></i>
                             <span class="hidden-tablet"> Store Unit</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "rack", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-reorder"></i>
                             <span class="hidden-tablet"> Rack</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "shelve", action: "index")}">
-                            <i class="icon-list-alt"></i>
+                            <i class="icon-hdd"></i>
                             <span class="hidden-tablet"> Shelve</span>
                         </a>
                     </li>
                     <li>
                         <a href="${createLink(controller: "user", action: "index")}">
-                            <i class="icon-list-alt"></i>
-                            <span class="hidden-tablet"> User</span>
+                            <i class="icon-group"></i>
+                            <span class="hidden-tablet"> Users</span>
                         </a>
                     </li>
                 </sec:ifAnyGranted>

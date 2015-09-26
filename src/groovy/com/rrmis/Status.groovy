@@ -3,7 +3,7 @@ package com.rrmis
 enum Status {
 
     DRAFT("Draft"),
-    SENT_TO_RECORD_ROOM("SENT_TO_RECORD_ROOM"),
+    SENT_TO_RECORD_ROOM("Sent to Record Room"),
     ISSUED("Issued"),
     DISTROY("Destroy")
 
