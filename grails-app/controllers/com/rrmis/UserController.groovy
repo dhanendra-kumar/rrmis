@@ -1,14 +1,13 @@
 package com.rrmis
 
-
+import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
+@Secured("hasAnyRole('SUPER_ADMIN', 'BRANCH_ADMIN', 'BRANCH_CLERK', 'RECORD_ROOM_ADMIN', 'RECORD_ROOM_CLERK')")
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    def springSecurityService
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -16,14 +15,20 @@ class UserController {
     }
 
     def show(User userInstance) {
-        respond userInstance
+        User user = springSecurityService.currentUser as User
+        Role role = Role.findByAuthority(Role.SUPER_ADMIN)
+        UserRole userRole = UserRole.findAllByUserAndRole(user, role)
+        if(userRole){
+            respond userInstance
+        }
+        respond user
     }
 
+    @Secured("hasRole('SUPER_ADMIN')")
     def create() {
         respond new User(params)
     }
 
-    @Transactional
     def save(User userInstance) {
         if (userInstance == null) {
             notFound()
@@ -50,7 +55,6 @@ class UserController {
         respond userInstance
     }
 
-    @Transactional
     def update(User userInstance) {
         if (userInstance == null) {
             notFound()
@@ -73,7 +77,6 @@ class UserController {
         }
     }
 
-    @Transactional
     def delete(User userInstance) {
 
         if (userInstance == null) {
@@ -100,5 +103,10 @@ class UserController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def showProfile() {
+        User user = springSecurityService.currentUser as User
+        redirect( uri: "${createLink(controller: "user", action: "show")}/${user.id}")
     }
 }

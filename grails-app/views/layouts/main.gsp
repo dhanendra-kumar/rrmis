@@ -75,7 +75,9 @@
                                 <span>Account Settings</span>
                             </li>
                             <li>
-                                <a href="#"><i class="halflings-icon user"></i> Profile</a>
+                                <a href="${createLink(controller: "user", action: "showProfile")}">
+                                    <i class="halflings-icon user"></i> Profile
+                                </a>
                             </li>
                             <li>
                                 <a href="${createLink(controller: "logout", action: "index")}">
