@@ -1,16 +1,5 @@
 <%@ page import="com.rrmis.Section" %>
 
-
-
-<div class="fieldcontain ${hasErrors(bean: sectionInstance, field: 'code', 'error')} required">
-	<label for="code">
-		<g:message code="section.code.label" default="Code" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="code" required="" value="${sectionInstance?.code}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: sectionInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="section.name.label" default="Name" />
@@ -25,7 +14,7 @@
 		<g:message code="section.office.label" default="Office" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="office" name="office.id" from="${com.rrmis.Office.list()}" optionKey="id" required="" value="${sectionInstance?.office?.id}" class="many-to-one"/>
+	<g:select id="office" name="office.id" from="${com.rrmis.Office.list()}" optionKey="id" optionValue="name" required="" value="${sectionInstance?.office?.id}" class="many-to-one"/>
 
 </div>
 

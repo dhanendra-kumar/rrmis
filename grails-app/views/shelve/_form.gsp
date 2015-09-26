@@ -2,15 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: shelveInstance, field: 'code', 'error')} required">
-	<label for="code">
-		<g:message code="shelve.code.label" default="Code" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="code" required="" value="${shelveInstance?.code}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: shelveInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="shelve.name.label" default="Name" />

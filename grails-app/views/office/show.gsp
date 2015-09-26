@@ -68,12 +68,12 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${officeInstance?.section}">
+				<g:if test="${officeInstance?.sections}">
 				<li class="fieldcontain">
 					<span id="section-label" class="property-label"><g:message code="office.section.label" default="Section" /></span>
 					
-						<g:each in="${officeInstance.section}" var="s">
-						<span class="property-value" aria-labelledby="section-label"><g:link controller="section" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						<g:each in="${officeInstance.sections}" var="s">
+						<span class="property-value" aria-labelledby="section-label"><g:link controller="section" action="show" id="${s.id}">${s?.name?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
@@ -83,7 +83,7 @@
 				<li class="fieldcontain">
 					<span id="subDivisionOffice-label" class="property-label"><g:message code="office.subDivisionOffice.label" default="Sub Division Office" /></span>
 					
-						<span class="property-value" aria-labelledby="subDivisionOffice-label"><g:link controller="subDivisionOffice" action="show" id="${officeInstance?.subDivisionOffice?.id}">${officeInstance?.subDivisionOffice?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="subDivisionOffice-label"><g:link controller="subDivisionOffice" action="show" id="${officeInstance?.subDivisionOffice?.id}">${officeInstance?.subDivisionOffice?.name?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

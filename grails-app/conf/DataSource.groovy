@@ -22,9 +22,10 @@ hibernate {
 environments {
     development {
         dataSource {
+
             username = "root"
             password = "igdefault"
-            dbCreate = "create-drop" //"create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" //"create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/rrmis_dev"
         }
 //        dataSource {

@@ -1,16 +1,6 @@
 <%@ page import="com.rrmis.StoreUnit" %>
 
 
-
-<div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'code', 'error')} required">
-	<label for="code">
-		<g:message code="storeUnit.code.label" default="Code" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="code" required="" value="${storeUnitInstance?.code}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="storeUnit.name.label" default="Name" />
@@ -43,7 +33,7 @@
 		<g:message code="storeUnit.recordRoom.label" default="Record Room" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="recordRoom" name="recordRoom.id" from="${com.rrmis.RecordRoom.list()}" optionKey="id" required="" value="${storeUnitInstance?.recordRoom?.id}" class="many-to-one"/>
+	<g:select id="recordRoom" name="recordRoom.id" from="${com.rrmis.RecordRoom.list()}" optionKey="id" optionValue="name" required="" value="${storeUnitInstance?.recordRoom?.id}" class="many-to-one"/>
 
 </div>
 

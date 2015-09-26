@@ -24,8 +24,6 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="code" title="${message(code: 'recordFile.code.label', default: 'Code')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'recordFile.name.label', default: 'Name')}" />
 					
 						<g:sortableColumn property="fileNumber" title="${message(code: 'recordFile.fileNumber.label', default: 'File Number')}" />
@@ -42,7 +40,7 @@
 				<g:each in="${recordFileInstanceList}" status="i" var="recordFileInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${recordFileInstance.id}">${fieldValue(bean: recordFileInstance, field: "code")}</g:link></td>
+						<td><g:link action="show" id="${recordFileInstance.id}">${fieldValue(bean: recordFileInstance, field: "id")}</g:link></td>
 					
 						<td>${fieldValue(bean: recordFileInstance, field: "name")}</td>
 					

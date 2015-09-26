@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list shelve">
 			
-				<g:if test="${shelveInstance?.code}">
-				<li class="fieldcontain">
-					<span id="code-label" class="property-label"><g:message code="shelve.code.label" default="Code" /></span>
-					
-						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${shelveInstance}" field="code"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${shelveInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="shelve.name.label" default="Name" /></span>
