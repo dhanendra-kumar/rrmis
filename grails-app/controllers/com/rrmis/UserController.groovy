@@ -107,6 +107,6 @@ class UserController {
 
     def showProfile() {
         User user = springSecurityService.currentUser as User
-        redirect( uri: "${createLink(controller: "user", action: "show")}/${user.id}")
+        redirect( url: "${createLink(controller: "user", action: "show", absolute: true)}/${user.id}")
     }
 }
