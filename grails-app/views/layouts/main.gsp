@@ -16,6 +16,7 @@
     <asset:stylesheet src="bootstrap-responsive.min.css"></asset:stylesheet>
     <asset:stylesheet src="style.css"></asset:stylesheet>
     <asset:stylesheet src="style-responsive.css"></asset:stylesheet>
+    <asset:stylesheet src="bootstrap.min.css"></asset:stylesheet>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 
     <asset:javascript src="jquery-1.9.1.min.js"></asset:javascript>
