@@ -8,15 +8,16 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-    <div class="row-fluid">
-        <div class="box span12">
-            <div class="box-header" data-original-title>
-                <h2><i class="halflings-icon user"></i><span class="break"></span></h2>
-                <div class="box-icon">
-                    <a href="#" class="btn-minimize" id='add-info'><i class="halflings-icon chevron-up"></i></a>
-
-                </div>
-            </div>
+    <div class="row-fluid sortable ui-sortable">
+        <div class="box span12" style="min-height: 600px">
+    %{--<div class="row-fluid">--}%
+        %{--<div class="span12">--}%
+            %{--<div class="" data-original-title>--}%
+                %{--<h2><i class="halflings-icon user"></i><span class="break"></span></h2>--}%
+                %{--<div class="box-icon">--}%
+                    %{--<a href="#" class="btn-minimize" id='add-info'><i class="halflings-icon chevron-up"></i></a>--}%
+                %{--</div>--}%
+            %{--</div>--}%
 
             <div class="box-content">
                 <div>

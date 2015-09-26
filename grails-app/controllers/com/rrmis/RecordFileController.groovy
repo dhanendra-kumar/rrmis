@@ -111,4 +111,34 @@ class RecordFileController {
     def consignFileForm(Long id) {
         render template: "consignFileForm", model: [shelveId: id]
     }
+
+    def generalRegister() {
+        List<RecordFile> recordFileInstanceList = RecordFile.findAllByStatusInList([Status.DRAFT, Status.SENT_TO_RECORD_ROOM, Status.DISTROY], [max: params.max?: 10, offset: params.offset ?: 0])
+        Long recordFileInstanceCount = RecordFile.countByStatusInList([Status.DRAFT, Status.SENT_TO_RECORD_ROOM, Status.DISTROY])
+        render view: "index", model: [recordFileInstanceList: recordFileInstanceList, recordFileInstanceCount: recordFileInstanceCount, heading: "General Register"]
+    }
+
+    def issuedRegister() {
+        List<RecordFile> recordFileInstanceList = RecordFile.findAllByStatus(Status.ISSUED, [max: params.max?: 10, offset: params.offset ?: 0])
+        Long recordFileInstanceCount = RecordFile.countByStatus(Status.ISSUED)
+        render view: "index", model: [recordFileInstanceList: recordFileInstanceList, recordFileInstanceCount: recordFileInstanceCount, heading: "Issued Register"]
+    }
+
+    def search(){
+        render view: "searchResult"
+    }
+
+    def fetchResult(String name, String fileNumber) {
+        println "name: ${name} --  fileNumber: ${fileNumber}"
+        List<RecordFile> recordFileList
+        if (name) {
+            recordFileList = RecordFile.findAllByNameIlikeOrFileNumberIlike("%${name}%", "%${name}%")
+        }
+        render view: "index", model: [recordFileInstanceList: recordFileList, recordFileInstanceCount: recordFileList.size(), heading: "Search Result"]
+    }
+
+    def showPath(RecordFile recordFileInstance) {
+        Shelve shelve = Shelve.findById(recordFileInstance?.shelve?.id)
+        render view: "path", model: [shelve: shelve]
+    }
 }
