@@ -26,6 +26,10 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'rack.name.label', default: 'Name')}" />
 					
+						<g:sortableColumn property="baseLocation" title="${message(code: 'rack.baseLocation.label', default: 'Base Location')}" />
+					
+						<g:sortableColumn property="rackFacePostion" title="${message(code: 'rack.rackFacePostion.label', default: 'Rack Face Postion')}" />
+					
 						<th><g:message code="rack.storeUnit.label" default="Store Unit" /></th>
 					
 					</tr>
@@ -34,11 +38,13 @@
 				<g:each in="${rackInstanceList}" status="i" var="rackInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${rackInstance.id}">${fieldValue(bean: rackInstance, field: "id")}</g:link></td>
+						<td><g:link action="show" id="${rackInstance.id}">${fieldValue(bean: rackInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: rackInstance, field: "name")}</td>
+						<td>${fieldValue(bean: rackInstance, field: "baseLocation")}</td>
 					
-						<td>${rackInstance?.storeUnit?.name}</td>
+						<td>${fieldValue(bean: rackInstance, field: "rackFacePostion")}</td>
+
+                        <td>${rackInstance?.storeUnit?.name}</td>
 					
 					</tr>
 				</g:each>

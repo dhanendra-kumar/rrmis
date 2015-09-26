@@ -32,6 +32,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${storeUnitInstance?.numberOfRacksInLength}">
+				<li class="fieldcontain">
+					<span id="numberOfRacksInLength-label" class="property-label"><g:message code="storeUnit.numberOfRacksInLength.label" default="Number Of Racks In Length" /></span>
+					
+						<span class="property-value" aria-labelledby="numberOfRacksInLength-label"><g:fieldValue bean="${storeUnitInstance}" field="numberOfRacksInLength"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${storeUnitInstance?.numberOfRacksInWidth}">
+				<li class="fieldcontain">
+					<span id="numberOfRacksInWidth-label" class="property-label"><g:message code="storeUnit.numberOfRacksInWidth.label" default="Number Of Racks In Width" /></span>
+					
+						<span class="property-value" aria-labelledby="numberOfRacksInWidth-label"><g:fieldValue bean="${storeUnitInstance}" field="numberOfRacksInWidth"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${storeUnitInstance?.rack}">
 				<li class="fieldcontain">
 					<span id="rack-label" class="property-label"><g:message code="storeUnit.rack.label" default="Rack" /></span>

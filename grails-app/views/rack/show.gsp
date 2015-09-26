@@ -32,6 +32,35 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${rackInstance?.baseLocation}">
+				<li class="fieldcontain">
+					<span id="baseLocation-label" class="property-label"><g:message code="rack.baseLocation.label" default="Base Location" /></span>
+					
+						<span class="property-value" aria-labelledby="baseLocation-label"><g:fieldValue bean="${rackInstance}" field="baseLocation"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${rackInstance?.rackFacePostion}">
+				<li class="fieldcontain">
+					<span id="rackFacePostion-label" class="property-label"><g:message code="rack.rackFacePostion.label" default="Rack Face Postion" /></span>
+					
+						<span class="property-value" aria-labelledby="rackFacePostion-label"><g:fieldValue bean="${rackInstance}" field="rackFacePostion"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${rackInstance?.shelve}">
+				<li class="fieldcontain">
+					<span id="shelve-label" class="property-label"><g:message code="rack.shelve.label" default="Shelve" /></span>
+					
+						<g:each in="${rackInstance.shelve}" var="s">
+						<span class="property-value" aria-labelledby="shelve-label"><g:link controller="shelve" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${rackInstance?.storeUnit}">
 				<li class="fieldcontain">
 					<span id="storeUnit-label" class="property-label"><g:message code="rack.storeUnit.label" default="Store Unit" /></span>
@@ -40,17 +69,6 @@
 					
 				</li>
 				</g:if>
-
-                <g:if test="${rackInstance?.shelve}">
-                    <li class="fieldcontain">
-                        <span id="shelve-label" class="property-label"><g:message code="rack.shelve.label" default="Shelve" /></span>
-
-                        <g:each in="${rackInstance.shelve}" var="s">
-                            <span class="property-value" aria-labelledby="shelve-label"><g:link controller="shelve" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
-                        </g:each>
-
-                    </li>
-                </g:if>
 			
 			</ol>
 			<g:form url="[resource:rackInstance, action:'delete']" method="DELETE">

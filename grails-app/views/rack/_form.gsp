@@ -11,12 +11,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'storeUnit', 'error')} required">
-    <label for="storeUnit">
-        <g:message code="rack.storeUnit.label" default="Store Unit" />
-        <span class="required-indicator">*</span>
-    </label>
-    <g:select id="storeUnit" name="storeUnit.id" from="${com.rrmis.StoreUnit.list()}" optionKey="id" optionValue="name" required="" value="${rackInstance?.storeUnit?.id}" class="many-to-one"/>
+<div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'baseLocation', 'error')} required">
+	<label for="baseLocation">
+		<g:message code="rack.baseLocation.label" default="Base Location" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="baseLocation" required="" value="${rackInstance?.baseLocation}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'rackFacePostion', 'error')} required">
+	<label for="rackFacePostion">
+		<g:message code="rack.rackFacePostion.label" default="Rack Face Postion" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="rackFacePostion" from="${com.rrmis.RackFacePostion?.values()}" keys="${com.rrmis.RackFacePostion.values()*.name()}" required="" value="${rackInstance?.rackFacePostion?.name()}" />
 
 </div>
 
@@ -37,5 +46,12 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'storeUnit', 'error')} required">
+	<label for="storeUnit">
+		<g:message code="rack.storeUnit.label" default="Store Unit" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="storeUnit" name="storeUnit.id" from="${com.rrmis.StoreUnit.list()}" optionKey="id" optionValue="name" required="" value="${rackInstance?.storeUnit?.id}" class="many-to-one"/>
 
+</div>
 

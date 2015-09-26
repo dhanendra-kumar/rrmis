@@ -26,19 +26,33 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'storeUnit.name.label', default: 'Name')}" />
 					
-						<th><g:message code="storeUnit.recordRoom.label" default="Record Room" /></th>
+						<g:sortableColumn property="numberOfRacksInLength" title="${message(code: 'storeUnit.numberOfRacksInLength.label', default: 'Number Of Racks In Length')}" />
 					
+						<g:sortableColumn property="numberOfRacksInWidth" title="${message(code: 'storeUnit.numberOfRacksInWidth.label', default: 'Number Of Racks In Width')}" />
+					
+						<th><g:message code="storeUnit.recordRoom.label" default="Record Room" /></th>
+
+						<th>Create Virtual Room</th>
+
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${storeUnitInstanceList}" status="i" var="storeUnitInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${storeUnitInstance.id}">${fieldValue(bean: storeUnitInstance, field: "id")}</g:link></td>
+						<td><g:link action="show" id="${storeUnitInstance.id}">${fieldValue(bean: storeUnitInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: storeUnitInstance, field: "name")}</td>
+						<td>${fieldValue(bean: storeUnitInstance, field: "numberOfRacksInLength")}</td>
 					
-						<td>${storeUnitInstance?.recordRoom?.name}</td>
+						<td>${fieldValue(bean: storeUnitInstance, field: "numberOfRacksInWidth")}</td>
+
+                        <td>${storeUnitInstance?.recordRoom?.name}</td>
+
+                        <td>
+                            <a href="${createLink(controller: "storeUnit", action: "virtualRoom")}/${storeUnitInstance.id}">
+                                <i class="halflings-icon edit"></i>
+                            </a>
+                        </td>
 					
 					</tr>
 				</g:each>

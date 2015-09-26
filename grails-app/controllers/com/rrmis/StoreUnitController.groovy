@@ -102,4 +102,8 @@ class StoreUnitController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def virtualRoom(StoreUnit storeUnit) {
+        render view: "virtualRoom", model: [storeUnit: storeUnit]
+    }
 }

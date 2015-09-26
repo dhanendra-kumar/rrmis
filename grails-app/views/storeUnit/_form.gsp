@@ -10,6 +10,24 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'numberOfRacksInLength', 'error')} required">
+	<label for="numberOfRacksInLength">
+		<g:message code="storeUnit.numberOfRacksInLength.label" default="Number Of Racks In Length" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="numberOfRacksInLength" type="number" value="${storeUnitInstance.numberOfRacksInLength}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'numberOfRacksInWidth', 'error')} required">
+	<label for="numberOfRacksInWidth">
+		<g:message code="storeUnit.numberOfRacksInWidth.label" default="Number Of Racks In Width" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="numberOfRacksInWidth" type="number" value="${storeUnitInstance.numberOfRacksInWidth}" required=""/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: storeUnitInstance, field: 'rack', 'error')} ">
 	<label for="rack">
 		<g:message code="storeUnit.rack.label" default="Rack" />
