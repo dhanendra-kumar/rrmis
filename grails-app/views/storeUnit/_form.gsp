@@ -36,7 +36,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${storeUnitInstance?.rack?}" var="r">
-    <li><g:link controller="rack" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="rack" action="show" id="${r.id}">${r?.name?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="rack" action="create" params="['storeUnit.id': storeUnitInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'rack.label', default: 'Rack')])}</g:link>

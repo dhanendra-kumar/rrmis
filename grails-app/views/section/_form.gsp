@@ -18,12 +18,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: sectionInstance, field: 'recordFile', 'error')} ">
-	<label for="recordFile">
-		<g:message code="section.recordFile.label" default="Record File" />
-		
-	</label>
-	<g:select name="recordFile" from="${com.rrmis.RecordFile.list()}" multiple="multiple" optionKey="id" size="5" value="${sectionInstance?.recordFile*.id}" class="many-to-many"/>
+%{--<div class="fieldcontain ${hasErrors(bean: sectionInstance, field: 'recordFile', 'error')} ">--}%
+	%{--<label for="recordFile">--}%
+		%{--<g:message code="section.recordFile.label" default="Record File" />--}%
 
-</div>
+	%{--</label>--}%
+	%{--<g:select name="recordFile" from="${com.rrmis.RecordFile.list()}" multiple="multiple" optionKey="id" size="5" value="${sectionInstance?.recordFile*.id}" class="many-to-many"/>--}%
+
+%{--</div>--}%
 

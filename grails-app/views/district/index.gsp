@@ -43,7 +43,7 @@
             <table class="table table-striped table-bordered bootstrap-datatable" id="user-list-table">
 			<thead>
 					<tr>
-					
+					    <th>Id</th>
 						<g:sortableColumn property="name" title="${message(code: 'district.name.label', default: 'Name')}" />
 					
 					</tr>

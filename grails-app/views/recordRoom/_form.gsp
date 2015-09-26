@@ -28,7 +28,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${recordRoomInstance?.storeUnit?}" var="s">
-    <li><g:link controller="storeUnit" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="storeUnit" action="show" id="${s.id}">${s?.name?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="storeUnit" action="create" params="['recordRoom.id': recordRoomInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'storeUnit.label', default: 'StoreUnit')])}</g:link>

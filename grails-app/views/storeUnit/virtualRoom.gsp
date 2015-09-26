@@ -64,7 +64,7 @@
                             var cols =size[0];
 
                             var boxId = 1;
-                            panel.css({'margin-top': '120px'});
+                            panel.css({'margin-top': '20px'});
                             panel.append("<div style='clear:both'></div>");
                             for(var i=1;i<=rows;i++){
                                 for(var j=1;j<=cols;j++){
@@ -163,13 +163,12 @@
 
 	</head>
 	<body>
-		virtual room
-    name ${storeUnit?.name}
-        <br>
+
+    <br>
     %{--name ${storeUnit?.rack}--}%
 
 
-
+<input type="button" class="btn btn-sm btn-primary" id="remove-border" value="Remove Graph"><br><br>
     <div id='imageToolsBox'><table>
     <tr><td><td>
         <td>

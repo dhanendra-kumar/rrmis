@@ -27,7 +27,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${subDivisionOfficeInstance?.office?}" var="o">
-    <li><g:link controller="office" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="office" action="show" id="${o.id}">${o?.name?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="office" action="create" params="['subDivisionOffice.id': subDivisionOfficeInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'office.label', default: 'Office')])}</g:link>

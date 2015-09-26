@@ -9,11 +9,27 @@
 	<body>
 		<a href="#edit-storeUnit" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+            <ul class="breadcrumb">
+                <li>
+                    <a class="btn btn-small btn-primary" href="${createLink(uri: '/')}">
+                        <i class="icon-home"></i>
+                        <g:message code="default.home.label"/>
+                    </a>
+                </li>
+                <sec:ifAnyGranted roles="SUPER_ADMIN">
+                    <li><g:link class="create btn btn-small btn-primary" action="index">
+                        <i class="icon-list-alt"></i>
+                        <g:message code="default.list.label" args="[entityName]" />
+                    </g:link>
+                    </li>
+                    <li><g:link class="create btn btn-small btn-primary" action="create">
+                        <i class="icon-edit"></i>
+                        <g:message code="default.new.label" args="[entityName]" />
+                    </g:link>
+                    </li>
+                </sec:ifAnyGranted>
+
+            </ul>
 		</div>
 		<div id="edit-storeUnit" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>

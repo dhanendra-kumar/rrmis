@@ -45,7 +45,7 @@
 	</label>
 <ul class="one-to-many">
 <g:each in="${officeInstance?.sections?}" var="s">
-    <li><g:link controller="section" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="section" action="show" id="${s.id}">${s?.name?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="section" action="create" params="['office.id': officeInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'section.label', default: 'Section')])}</g:link>
