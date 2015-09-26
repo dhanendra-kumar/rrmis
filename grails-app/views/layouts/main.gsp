@@ -108,23 +108,6 @@
                             <i class="halflings-icon white qrcode"></i><span class="hidden-tablet"> Dashboard</span>
                         </a>
                     </li>
-                <sec:ifAnyGranted roles="BRANCH_ADMIN,BRANCH_CLERK">
-                    <li>
-                        <a href="#">
-                            <i class="halflings-icon white user"></i>
-                            <span class="hidden-tablet"> Profile</span>
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
-
-                <sec:ifAnyGranted roles="RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
-                    <li>
-                        <a href="#">
-                            <i class="halflings-icon white user"></i>
-                            <span class="hidden-tablet">My Profile</span>
-                        </a>
-                    </li>
-                </sec:ifAnyGranted>
 
                 <sec:ifAnyGranted roles="BRANCH_CLERK">
                     <li>
