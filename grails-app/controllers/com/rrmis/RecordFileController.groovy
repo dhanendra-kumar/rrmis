@@ -123,4 +123,22 @@ class RecordFileController {
         Long recordFileInstanceCount = RecordFile.countByStatus(Status.ISSUED)
         render view: "index", model: [recordFileInstanceList: recordFileInstanceList, recordFileInstanceCount: recordFileInstanceCount, heading: "Issued Register"]
     }
+
+    def search(){
+        render view: "searchResult"
+    }
+
+    def fetchResult(String name, String fileNumber) {
+        println "name: ${name} --  fileNumber: ${fileNumber}"
+        List<RecordFile> recordFileList
+        if (name) {
+            recordFileList = RecordFile.findAllByNameIlikeOrFileNumberIlike("%${name}%", "%${name}%")
+        }
+        render view: "index", model: [recordFileInstanceList: recordFileList, recordFileInstanceCount: recordFileList.size(), heading: "Search Result"]
+    }
+
+    def showPath(RecordFile recordFileInstance) {
+        Shelve shelve = Shelve.findById(recordFileInstance?.shelve?.id)
+        render view: "path", model: [shelve: shelve]
+    }
 }

@@ -29,6 +29,7 @@
 			<table>
 			<thead>
 					<tr>
+                        <td></td>
 					
 						<g:sortableColumn property="name" title="${message(code: 'recordFile.name.label', default: 'Name')}" />
 					
@@ -39,6 +40,8 @@
 						<g:sortableColumn property="consignDate" title="${message(code: 'recordFile.consignDate.label', default: 'Consign Date')}" />
 					
 						<g:sortableColumn property="totalPage" title="${message(code: 'recordFile.totalPage.label', default: 'Total Page')}" />
+
+                        <td>Action</td>
 					
 					</tr>
 				</thead>
@@ -57,6 +60,12 @@
 						<td><g:formatDate date="${recordFileInstance.consignDate}" /></td>
 					
 						<td>${fieldValue(bean: recordFileInstance, field: "totalPage")}</td>
+
+                        <td>
+                            <a href="${createLink(controller: "recordFile", action: "showPath")}/${recordFileInstance.id}">
+                                <i class="icon-road"></i><i class="icon-search"></i>
+                            </a>
+                        </td>
 					
 					</tr>
 				</g:each>

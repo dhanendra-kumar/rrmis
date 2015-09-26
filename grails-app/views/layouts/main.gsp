@@ -166,26 +166,11 @@
                         </ul>
                     </li>
 
-
-                <sec:ifAnyGranted roles="SUPER_ADMIN,BRANCH_CLERK">
-                    <li>
-                        <a class="dropmenu" href="#"><i class="halflings-icon white list-alt"></i><span class="hidden-tablet"> Reports</span></a>
-                        <ul>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Consigned Detail Reports  </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Due Disposal Register  </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposed File Register  </span></a></li>
-                        </ul>
-                    </li>
-                </sec:ifAnyGranted>
-
                 <sec:ifAnyGranted roles="SUPER_ADMIN,RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Summary Reports</span></a>
                         <ul>
                             <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Stock File Summary  </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issue File Summary  </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposal Due Summary  </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Disposal Permission  </span></a></li>
                             <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issued Detail Reports  </span></a></li>
                             <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Return Detail Reports  </span></a></li>
                         </ul>
