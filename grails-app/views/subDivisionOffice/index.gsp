@@ -24,8 +24,6 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="code" title="${message(code: 'subDivisionOffice.code.label', default: 'Code')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'subDivisionOffice.name.label', default: 'Name')}" />
 					
 						<th><g:message code="subDivisionOffice.district.label" default="District" /></th>
@@ -36,12 +34,13 @@
 				<g:each in="${subDivisionOfficeInstanceList}" status="i" var="subDivisionOfficeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${subDivisionOfficeInstance.id}">${fieldValue(bean: subDivisionOfficeInstance, field: "code")}</g:link></td>
+						<td><g:link action="show" id="${subDivisionOfficeInstance.id}">${fieldValue(bean: subDivisionOfficeInstance, field: "name")}</g:link></td>
 					
 						<td>${fieldValue(bean: subDivisionOfficeInstance, field: "name")}</td>
 					
-						<td>${fieldValue(bean: subDivisionOfficeInstance, field: "district")}</td>
-					
+						%{--<td>${(fieldValue(bean: subDivisionOfficeInstance, field: "district") as com.rrmis.District)?.name}</td>--}%
+						<td>${subDivisionOfficeInstance?.district?.name}</td>
+
 					</tr>
 				</g:each>
 				</tbody>

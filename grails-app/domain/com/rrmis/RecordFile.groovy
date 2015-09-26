@@ -2,7 +2,6 @@ package com.rrmis
 
 class RecordFile {
 
-    String code
     String name
     String fileNumber
     String subject
@@ -15,7 +14,6 @@ class RecordFile {
     Shelve shelve
 
     static constraints = {
-        code nullable: false, unique: true
         name nullable: false, blank: false
         fileNumber nullable: false, blank: false
         subject nullable: false, blank: false

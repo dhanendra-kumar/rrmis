@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list section">
 			
-				<g:if test="${sectionInstance?.code}">
-				<li class="fieldcontain">
-					<span id="code-label" class="property-label"><g:message code="section.code.label" default="Code" /></span>
-					
-						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${sectionInstance}" field="code"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${sectionInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="section.name.label" default="Name" /></span>
@@ -45,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="office-label" class="property-label"><g:message code="section.office.label" default="Office" /></span>
 					
-						<span class="property-value" aria-labelledby="office-label"><g:link controller="office" action="show" id="${sectionInstance?.office?.id}">${sectionInstance?.office?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="office-label"><g:link controller="office" action="show" id="${sectionInstance?.office?.id}">${sectionInstance?.office?.name?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

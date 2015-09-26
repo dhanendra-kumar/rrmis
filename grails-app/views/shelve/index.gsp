@@ -24,8 +24,6 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="code" title="${message(code: 'shelve.code.label', default: 'Code')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'shelve.name.label', default: 'Name')}" />
 					
 						<g:sortableColumn property="capacity" title="${message(code: 'shelve.capacity.label', default: 'Capacity')}" />
@@ -38,7 +36,7 @@
 				<g:each in="${shelveInstanceList}" status="i" var="shelveInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${shelveInstance.id}">${fieldValue(bean: shelveInstance, field: "code")}</g:link></td>
+						<td><g:link action="show" id="${shelveInstance.id}">${fieldValue(bean: shelveInstance, field: "id")}</g:link></td>
 					
 						<td>${fieldValue(bean: shelveInstance, field: "name")}</td>
 					

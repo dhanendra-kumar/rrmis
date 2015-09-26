@@ -2,15 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: recordFileInstance, field: 'code', 'error')} required">
-	<label for="code">
-		<g:message code="recordFile.code.label" default="Code" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="code" required="" value="${recordFileInstance?.code}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: recordFileInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="recordFile.name.label" default="Name" />

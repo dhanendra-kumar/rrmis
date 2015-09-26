@@ -1,16 +1,6 @@
 <%@ page import="com.rrmis.SubDivisionOffice" %>
 
 
-
-<div class="fieldcontain ${hasErrors(bean: subDivisionOfficeInstance, field: 'code', 'error')} required">
-	<label for="code">
-		<g:message code="subDivisionOffice.code.label" default="Code" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="code" required="" value="${subDivisionOfficeInstance?.code}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: subDivisionOfficeInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="subDivisionOffice.name.label" default="Name" />
@@ -25,7 +15,7 @@
 		<g:message code="subDivisionOffice.district.label" default="District" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="district" name="district.id" from="${com.rrmis.District.list()}" optionKey="id" required="" value="${subDivisionOfficeInstance?.district?.id}" class="many-to-one"/>
+	<g:select id="district" name="district.id" from="${com.rrmis.District.list()}" optionKey="id" optionValue="name" required="" value="${subDivisionOfficeInstance?.district?.id}" class="many-to-one"/>
 
 </div>
 

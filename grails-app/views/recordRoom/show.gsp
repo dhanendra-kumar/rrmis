@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list recordRoom">
 			
-				<g:if test="${recordRoomInstance?.code}">
-				<li class="fieldcontain">
-					<span id="code-label" class="property-label"><g:message code="recordRoom.code.label" default="Code" /></span>
-					
-						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${recordRoomInstance}" field="code"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${recordRoomInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="recordRoom.name.label" default="Name" /></span>
@@ -45,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="office-label" class="property-label"><g:message code="recordRoom.office.label" default="Office" /></span>
 					
-						<span class="property-value" aria-labelledby="office-label"><g:link controller="office" action="show" id="${recordRoomInstance?.office?.id}">${recordRoomInstance?.office?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="office-label"><g:link controller="office" action="show" id="${recordRoomInstance?.office?.id}">${recordRoomInstance?.office?.name?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
