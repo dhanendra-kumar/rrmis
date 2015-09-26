@@ -24,8 +24,6 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="code" title="${message(code: 'rack.code.label', default: 'Code')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'rack.name.label', default: 'Name')}" />
 					
 						<th><g:message code="rack.storeUnit.label" default="Store Unit" /></th>
@@ -36,11 +34,11 @@
 				<g:each in="${rackInstanceList}" status="i" var="rackInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${rackInstance.id}">${fieldValue(bean: rackInstance, field: "code")}</g:link></td>
+						<td><g:link action="show" id="${rackInstance.id}">${fieldValue(bean: rackInstance, field: "id")}</g:link></td>
 					
 						<td>${fieldValue(bean: rackInstance, field: "name")}</td>
 					
-						<td>${fieldValue(bean: rackInstance, field: "storeUnit")}</td>
+						<td>${rackInstance?.storeUnit?.name}</td>
 					
 					</tr>
 				</g:each>

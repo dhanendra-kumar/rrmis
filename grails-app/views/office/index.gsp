@@ -52,7 +52,7 @@
 					
 						<td>${fieldValue(bean: officeInstance, field: "name")}</td>
 					
-						<td>${fieldValue(bean: officeInstance, field: "subDivisionOffice")}</td>
+						<td>${officeInstance?.subDivisionOffice?.name}</td>
 					
 					</tr>
 				</g:each>

@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list district">
 			
-				<g:if test="${districtInstance?.code}">
-				<li class="fieldcontain">
-					<span id="code-label" class="property-label"><g:message code="district.code.label" default="Code" /></span>
-					
-						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${districtInstance}" field="code"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${districtInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="district.name.label" default="Name" /></span>

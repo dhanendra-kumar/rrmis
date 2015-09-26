@@ -279,9 +279,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${createLink(controller: "subDivisionOffice", action: "index")}">
+                        <a href="${createLink(controller: "office", action: "index")}">
                             <i class="icon-list-alt"></i>
-                            <span class="hidden-tablet"> Sub Division Office</span>
+                            <span class="hidden-tablet"> Office</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${createLink(controller: "section", action: "index")}">
+                            <i class="icon-list-alt"></i>
+                            <span class="hidden-tablet"> Section</span>
                         </a>
                     </li>
                     <li>
@@ -304,12 +310,6 @@
                     </li>
                     <li>
                         <a href="${createLink(controller: "shelve", action: "index")}">
-                            <i class="icon-list-alt"></i>
-                            <span class="hidden-tablet"> Shelve</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="${createLink(controller: "recordFile", action: "index")}">
                             <i class="icon-list-alt"></i>
                             <span class="hidden-tablet"> Shelve</span>
                         </a>

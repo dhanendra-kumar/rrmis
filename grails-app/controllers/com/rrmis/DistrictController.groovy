@@ -1,11 +1,11 @@
 package com.rrmis
 
-import org.springframework.security.access.annotation.Secured
+import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Secured("SUPER_ADMIN")
+@Secured("hasRole('SUPER_ADMIN')")
 @Transactional(readOnly = true)
 class DistrictController {
 

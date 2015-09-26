@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list recordFile">
 			
-				<g:if test="${recordFileInstance?.code}">
-				<li class="fieldcontain">
-					<span id="code-label" class="property-label"><g:message code="recordFile.code.label" default="Code" /></span>
-					
-						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${recordFileInstance}" field="code"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${recordFileInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="recordFile.name.label" default="Name" /></span>

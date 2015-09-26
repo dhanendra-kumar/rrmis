@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list subDivisionOffice">
 			
-				<g:if test="${subDivisionOfficeInstance?.code}">
-				<li class="fieldcontain">
-					<span id="code-label" class="property-label"><g:message code="subDivisionOffice.code.label" default="Code" /></span>
-					
-						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${subDivisionOfficeInstance}" field="code"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${subDivisionOfficeInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="subDivisionOffice.name.label" default="Name" /></span>
@@ -45,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="district-label" class="property-label"><g:message code="subDivisionOffice.district.label" default="District" /></span>
 					
-						<span class="property-value" aria-labelledby="district-label"><g:link controller="district" action="show" id="${subDivisionOfficeInstance?.district?.id}">${subDivisionOfficeInstance?.district?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="district-label"><g:link controller="district" action="show" id="${subDivisionOfficeInstance?.district?.id}">${subDivisionOfficeInstance?.district?.name?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
