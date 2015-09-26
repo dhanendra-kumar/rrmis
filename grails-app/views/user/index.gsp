@@ -6,6 +6,8 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+        <asset:stylesheet src="dataTables.bootstrap.css"></asset:stylesheet>
+        <asset:stylesheet src="jquery.dataTables.css"></asset:stylesheet>
         <script>
             jQuery(document).ready(function(){
                 $('#user-list-table').DataTable();
