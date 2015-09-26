@@ -8,6 +8,7 @@ class Rack {
 
     static constraints = {
         name nullable: false, blank: false
+        baseLocation nullable: true
     }
 
     static belongsTo = [storeUnit: StoreUnit]
