@@ -57,8 +57,8 @@
                                         var imgclone = pickImage.clone();
 
                                         imgclone.offset({
-                                                    top: pickImage.offset().top-100,
-                                                    left: pickImage.offset().left+10
+                                                    top: pickImage.offset().top,
+                                                    left: pickImage.offset().left
                                                 })
                                                 .appendTo($('body'));
                                     })
@@ -87,10 +87,13 @@
                                 id++;
                                 //alert(parseInt(imgtodrag.offset().left));
                                 if (imgtodrag) {
+                                    var imageToolsBoxHeight = jQuery("#imgDiv").height() + 40;
+                                    var imageToolsBoxWidth = jQuery(".imgbox").width() * 6;
+                                    console.log(imageToolsBoxWidth);
                                     var imgclone = imgtodrag.clone()
                                             .offset({
-                                                'top': parseInt(imgtodrag.offset().top),
-                                                'left': parseInt(imgtodrag.offset().left)
+                                                'top': parseInt(imgtodrag.offset().top) - imageToolsBoxHeight,
+                                                'left': parseInt(imgtodrag.offset().left) - imageToolsBoxWidth
                                             })
                                             .css({
                                                 'width': '6%',
@@ -101,8 +104,8 @@
                                             .appendTo(base)
                                             .attr('id',id)
                                             .animate({
-                                                'top': base.offset().top + 2,
-                                                'left': base.offset().left + 2
+                                                'top': base.offset().top - imageToolsBoxHeight,
+                                                'left': base.offset().left - imageToolsBoxWidth
                                             },500,function(){
                                                 imgclone.css({
                                                     'width': '100%',
@@ -176,14 +179,16 @@
 
     <input type="button" class="btn btn-sm btn-primary" id="remove-border" value="Remove Graph">
     <input type="button" class="btn btn-sm btn-primary" id="view-border" value="view Graph"><br><br>
-    <div id='imageToolsBox'><table>
+    <div id='imageToolsBox'>
+        <table>
     <tr><td><td>
         <td>
+        <span id="imgDiv">
             <asset:image class="imgbox" id="top-img" src="rack/TOP.PNG"></asset:image>
             <asset:image class="imgbox" src="rack/LEFT.PNG"></asset:image>
             <asset:image class="imgbox" src="rack/RIGHT.PNG"></asset:image>
             <asset:image class="imgbox" src="rack/BOTTOM.PNG"></asset:image>
-
+        </span>
 
         </td>
     </tr>
