@@ -128,8 +128,7 @@ class RecordFileController {
         render view: "searchResult"
     }
 
-    def fetchResult(String name, String fileNumber) {
-        println "name: ${name} --  fileNumber: ${fileNumber}"
+    def fetchResult(String name) {
         List<RecordFile> recordFileList
         if (name) {
             recordFileList = RecordFile.findAllByNameIlikeOrFileNumberIlike("%${name}%", "%${name}%")

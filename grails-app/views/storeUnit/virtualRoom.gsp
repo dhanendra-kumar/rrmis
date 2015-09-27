@@ -8,10 +8,11 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
         <style>
         .matrixbox{
-            width: 6.8%;max-height: 70px;height: 70px;border: 1px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
+            width: 6.8%;max-height: 100px;height: 100px;border: 1px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
         }
         .imgbox{
             width: 3%;float: left;
+            box-shadow: 10px 10px 5px #888888;
         //height: 100%;
 
         }
@@ -44,16 +45,13 @@
                             var panel = $(this);
                             $('#remove-border').click(function(){
                                 jQuery('.matrixbox').css({'border': '0px solid #FFF'});
+                                jQuery('.numbers').hide();
+                            });
+                            $('#view-border').click(function(){
+                                jQuery('.matrixbox').css({'border': '1px solid #dddddd'});
+                                jQuery('.numbers').show();
                             });
 
-
-                            /*var imagePanel = "<div id='imageToolsBox'><img class='imgbox' name='left' id='top' src='"+options.leftInsideImage+"'></div>";
-                             panel.before(imagePanel);
-                             $('#imageToolsBox').append("<img class='imgbox' name='left' id='top' src='"+options.leftDownCornerImage+"'>");
-                             $('#imageToolsBox').append("<img class='imgbox' name='left' id='top' src='"+options.rightInsideImage+"'>");
-                             $('#imageToolsBox').append("<img class='imgbox' name='left' id='top' src='"+options.topInsideImage+"'>");
-                             $('#imageToolsBox').append("<img class='imgbox' name='left' id='top' src='"+options.bottomInsideImage+"'>");
-                             */
                             jQuery('#imageToolsBox img')
                                     .click(function(){pickImage=$(this);})
                                     .mouseover(function() {jQuery(this).animate({width: '4%' }, 300);})
@@ -63,27 +61,28 @@
                             var rows =size[1];
                             var cols =size[0];
 
-                            var boxId = 1;
+                            var boxId = 0;
                             panel.css({'margin-top': '20px'});
                             panel.append("<div style='clear:both'></div>");
                             for(var i=1;i<=rows;i++){
-                                for(var j=1;j<=cols;j++){
-                                    panel.append("<div class='matrixbox' id='matrix-box-"+ boxId++ +"'></div>");
+                                for(var j=1;j<=cols;j++){boxId++;
+                                    panel.append("<div class='matrixbox' id='matrix-box-"+ boxId +"'></div>");
                                 }
                                 panel.append("<div style='clear:both'></div>");
                             }
                             jQuery('.matrixbox').on('click',function(){
                                 var boxid = (jQuery(this).attr('id'));
+
                                  var base = jQuery(this);
                                 if(base.html()!="")return;
                                 var imgtodrag = pickImage;
                                 id++;
                                 //alert(parseInt(imgtodrag.offset().left));
                                 if (imgtodrag) {
-                                    var imgclone = imgtodrag.clone();
-                                    imgclone.offset({
-                                                top: parseInt(imgtodrag.offset().top),
-                                                left: parseInt(imgtodrag.offset().left)
+                                    var imgclone = imgtodrag.clone()
+                                            .offset({
+                                                'top': parseInt(imgtodrag.offset().top),
+                                                'left': parseInt(imgtodrag.offset().left)
                                             })
                                             .css({
                                                 'width': '6%',
@@ -91,13 +90,12 @@
                                                 'position': 'absolute'
 
                                             })
-                                            .appendTo((base))
+                                            .appendTo(base)
                                             .attr('id',id)
-                                            .attr('class','activeAlmirah')
                                             .animate({
                                                 'top': base.offset().top + 2,
                                                 'left': base.offset().left + 2
-                                            },0,function(){
+                                            },500,function(){
                                                 imgclone.css({
                                                     'width': '100%',
                                                     'z-index': '100',
@@ -168,7 +166,8 @@
     %{--name ${storeUnit?.rack}--}%
 
 
-<input type="button" class="btn btn-sm btn-primary" id="remove-border" value="Remove Graph"><br><br>
+    <input type="button" class="btn btn-sm btn-primary" id="remove-border" value="Remove Graph">
+    <input type="button" class="btn btn-sm btn-primary" id="view-border" value="view Graph"><br><br>
     <div id='imageToolsBox'><table>
     <tr><td><td>
         <td>
@@ -181,7 +180,7 @@
         </td>
     </tr>
     </table></div>
-
+<div style="clear: both"></div>
     <div id="panel"></div>
 	</body>
 </html>

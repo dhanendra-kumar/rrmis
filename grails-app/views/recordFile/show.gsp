@@ -8,12 +8,30 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-recordFile" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		%{--<a href="#show-recordFile" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>--}%
 		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
+            <ul class="breadcrumb">
+                <li>
+                    <a class="btn btn-small btn-primary" href="${createLink(uri: '/')}">
+                        <i class="icon-home"></i>
+                        <g:message code="default.home.label"/>
+                    </a>
+                </li>
+
+                <sec:ifAnyGranted roles="SUPER_ADMIN">
+                    <li><g:link class="create btn btn-small btn-primary" action="index">
+                        <i class="icon-list-alt"></i>
+                        <g:message code="default.list.label" args="[entityName]" />
+                    </g:link>
+                    </li>
+                    <li><g:link class="create btn btn-small btn-primary" action="create">
+                        <i class="icon-edit"></i>
+                        <g:message code="default.new.label" args="[entityName]" />
+                    </g:link>
+                    </li>
+                </sec:ifAnyGranted>
+
+            </ul>
 		</div>
 		<div id="show-recordFile" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -24,99 +42,99 @@
 			
 				<g:if test="${recordFileInstance?.name}">
 				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="recordFile.name.label" default="Name" /></span>
+					<span id="name-label" class="property-label span2"><g:message code="recordFile.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${recordFileInstance}" field="name"/></span>
 					
 				</li>
 				</g:if>
-			
+			    <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.fileNumber}">
 				<li class="fieldcontain">
-					<span id="fileNumber-label" class="property-label"><g:message code="recordFile.fileNumber.label" default="File Number" /></span>
+					<span id="fileNumber-label" class="property-label span2"><g:message code="recordFile.fileNumber.label" default="File Number" /></span>
 					
 						<span class="property-value" aria-labelledby="fileNumber-label"><g:fieldValue bean="${recordFileInstance}" field="fileNumber"/></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.subject}">
 				<li class="fieldcontain">
-					<span id="subject-label" class="property-label"><g:message code="recordFile.subject.label" default="Subject" /></span>
+					<span id="subject-label" class="property-label span2"><g:message code="recordFile.subject.label" default="Subject" /></span>
 					
 						<span class="property-value" aria-labelledby="subject-label"><g:fieldValue bean="${recordFileInstance}" field="subject"/></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.consignDate}">
 				<li class="fieldcontain">
-					<span id="consignDate-label" class="property-label"><g:message code="recordFile.consignDate.label" default="Consign Date" /></span>
+					<span id="consignDate-label" class="property-label span2"><g:message code="recordFile.consignDate.label" default="Consign Date" /></span>
 					
 						<span class="property-value" aria-labelledby="consignDate-label"><g:formatDate date="${recordFileInstance?.consignDate}" /></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.totalPage}">
 				<li class="fieldcontain">
-					<span id="totalPage-label" class="property-label"><g:message code="recordFile.totalPage.label" default="Total Page" /></span>
+					<span id="totalPage-label" class="property-label span2"><g:message code="recordFile.totalPage.label" default="Total Page" /></span>
 					
 						<span class="property-value" aria-labelledby="totalPage-label"><g:fieldValue bean="${recordFileInstance}" field="totalPage"/></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.remark}">
 				<li class="fieldcontain">
-					<span id="remark-label" class="property-label"><g:message code="recordFile.remark.label" default="Remark" /></span>
+					<span id="remark-label" class="property-label span2"><g:message code="recordFile.remark.label" default="Remark" /></span>
 					
 						<span class="property-value" aria-labelledby="remark-label"><g:fieldValue bean="${recordFileInstance}" field="remark"/></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.classType}">
 				<li class="fieldcontain">
-					<span id="classType-label" class="property-label"><g:message code="recordFile.classType.label" default="Class Type" /></span>
+					<span id="classType-label" class="property-label span2"><g:message code="recordFile.classType.label" default="Class Type" /></span>
 					
 						<span class="property-value" aria-labelledby="classType-label"><g:fieldValue bean="${recordFileInstance}" field="classType"/></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.dateOfFinalDisposal}">
 				<li class="fieldcontain">
-					<span id="dateOfFinalDisposal-label" class="property-label"><g:message code="recordFile.dateOfFinalDisposal.label" default="Date Of Final Disposal" /></span>
+					<span id="dateOfFinalDisposal-label" class="property-label span2"><g:message code="recordFile.dateOfFinalDisposal.label" default="Date Of Final Disposal" /></span>
 					
 						<span class="property-value" aria-labelledby="dateOfFinalDisposal-label"><g:formatDate date="${recordFileInstance?.dateOfFinalDisposal}" /></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.status}">
 				<li class="fieldcontain">
-					<span id="status-label" class="property-label"><g:message code="recordFile.status.label" default="Status" /></span>
+					<span id="status-label" class="property-label span2"><g:message code="recordFile.status.label" default="Status" /></span>
 					
 						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${recordFileInstance}" field="status"/></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 				<g:if test="${recordFileInstance?.shelve}">
 				<li class="fieldcontain">
-					<span id="shelve-label" class="property-label"><g:message code="recordFile.shelve.label" default="Shelve" /></span>
+					<span id="shelve-label" class="property-label span2"><g:message code="recordFile.shelve.label" default="Shelve" /></span>
 					
-						<span class="property-value" aria-labelledby="shelve-label"><g:link controller="shelve" action="show" id="${recordFileInstance?.shelve?.id}">${recordFileInstance?.shelve?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="shelve-label"><g:link controller="shelve" action="show" id="${recordFileInstance?.shelve?.id}">${recordFileInstance?.shelve?.name?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
-			
+                <div class="clearfix"></div>
 			</ol>
 			<g:form url="[resource:recordFileInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${recordFileInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:link class="edit btn btn-sm btn-primary" action="edit" resource="${recordFileInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit class="delete btn btn-sm btn-primary" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
 		</div>

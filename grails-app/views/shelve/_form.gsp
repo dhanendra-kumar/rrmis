@@ -25,16 +25,16 @@
 		<g:message code="shelve.rack.label" default="Rack" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="rack" name="rack.id" from="${com.rrmis.Rack.list()}" optionKey="id" required="" value="${shelveInstance?.rack?.id}" class="many-to-one"/>
+	<g:select id="rack" name="rack.id" from="${com.rrmis.Rack.list()}" optionKey="id" optionValue="name" required="" value="${shelveInstance?.rack?.name}" class="many-to-one"/>
 
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: shelveInstance, field: 'recordFile', 'error')} ">
 	<label for="recordFile">
 		<g:message code="shelve.recordFile.label" default="Record File" />
-		
+
 	</label>
-	
+
 <ul class="one-to-many">
 <g:each in="${shelveInstance?.recordFile?}" var="r">
     <li><g:link controller="recordFile" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>

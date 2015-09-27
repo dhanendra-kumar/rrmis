@@ -14,4 +14,8 @@ class Rack {
     static belongsTo = [storeUnit: StoreUnit]
 
     static hasMany = [shelve: Shelve]
+
+    String getBaseLocationForJavascript() {
+        return baseLocation?.startsWith("matrix-box-") ? baseLocation : "matrix-box-" + baseLocation
+    }
 }

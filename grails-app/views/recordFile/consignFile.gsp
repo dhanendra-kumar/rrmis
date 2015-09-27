@@ -20,6 +20,7 @@
             %{--</div>--}%
 
             <div class="box-content">
+            <h1>Record A File</h1>
                 <div>
                     <g:select name="district" id="districtSelect" from="${districtList}" optionKey="id" optionValue="name" noSelection="['': 'Select District']"></g:select>
                 </div>

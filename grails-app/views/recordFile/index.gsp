@@ -6,13 +6,26 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'recordFile.label', default: 'RecordFile')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+        <asset:stylesheet src="dataTables.bootstrap.css"></asset:stylesheet>
+        <asset:stylesheet src="jquery.dataTables.css"></asset:stylesheet>
+        <script>
+            jQuery(document).ready(function(){
+                $('#user-list-table').DataTable();
+            });
+        </script>
 	</head>
 	<body>
-		<a href="#list-recordFile" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		%{--<a href="#list-recordFile" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>--}%
 		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-			</ul>
+            <ul class="breadcrumb">
+                <li>
+                    <a class="btn btn-small btn-primary" href="${createLink(uri: '/')}">
+                        <i class="icon-home"></i>
+                        <g:message code="default.home.label"/>
+                    </a>
+                </li>
+
+            </ul>
 		</div>
 		<div id="list-recordFile" class="content scaffold-list" role="main">
 			<h1>
@@ -26,20 +39,15 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+            <table class="table table-striped table-bordered bootstrap-datatable" id="user-list-table">
 			<thead>
 					<tr>
-                        <td></td>
-					
-						<g:sortableColumn property="name" title="${message(code: 'recordFile.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="fileNumber" title="${message(code: 'recordFile.fileNumber.label', default: 'File Number')}" />
-					
-						<g:sortableColumn property="subject" title="${message(code: 'recordFile.subject.label', default: 'Subject')}" />
-					
-						<g:sortableColumn property="consignDate" title="${message(code: 'recordFile.consignDate.label', default: 'Consign Date')}" />
-					
-						<g:sortableColumn property="totalPage" title="${message(code: 'recordFile.totalPage.label', default: 'Total Page')}" />
+                        <td>Id</td>
+                        <td>${message(code: 'recordFile.name.label', default: 'Name')}</td>
+                        <td>${message(code: 'recordFile.fileNumber.label', default: 'File Number')}</td>
+                        <td>${message(code: 'recordFile.subject.label', default: 'Subject')}</td>
+                        <td>${message(code: 'recordFile.consignDate.label', default: 'Consign Date')}</td>
+                        <td>${message(code: 'recordFile.totalPage.label', default: 'Total Page')}</td>
 
                         <td>Action</td>
 					

@@ -8,9 +8,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>
-        <g:layoutTitle default="Grails"/>
+        <g:layoutTitle default="RRMIS"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="${asset.assetPath(src: 'favicon.ico')}">
 
     <asset:stylesheet src="bootstrap.min.css"></asset:stylesheet>
     <asset:stylesheet src="bootstrap-responsive.min.css"></asset:stylesheet>
@@ -121,31 +122,36 @@
                     </li>
                 </sec:ifAnyGranted>
 
-                <sec:ifAnyGranted roles="SUPER_ADMIN,RECORD_ROOM_ADMIN">
-                    <li>
-                        <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Manage Location</span></a>
-                        <ul>
-                            <li>
-                                <a class="submenu" href="${createLink(controller: "storeUnit", action: "index")}">
-                                    <i class="halflings-icon white user"></i>
-                                    <span class="hidden-tablet"> Storing Units</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="submenu" href="${createLink(controller: "rack", action: "index")}">
-                                    <i class="halflings-icon white user"></i>
-                                    <span class="hidden-tablet"> Racks/Almira</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="submenu" href="${createLink(controller: "shelve", action: "index")}">
-                                    <i class="halflings-icon white user"></i>
-                                    <span class="hidden-tablet"> Shelve</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </sec:ifAnyGranted>
+                <li>
+                    <a href="${createLink(controller: "recordFile", action: "search")}">
+                        <i class="icon-search"></i><span class="hidden-tablet"> Search File</span></a>
+                </li>
+
+                %{--<sec:ifAnyGranted roles="SUPER_ADMIN,RECORD_ROOM_ADMIN">--}%
+                    %{--<li>--}%
+                        %{--<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Manage Location</span></a>--}%
+                        %{--<ul>--}%
+                            %{--<li>--}%
+                                %{--<a class="submenu" href="${createLink(controller: "storeUnit", action: "index")}">--}%
+                                    %{--<i class="halflings-icon white user"></i>--}%
+                                    %{--<span class="hidden-tablet"> Storing Units</span>--}%
+                                %{--</a>--}%
+                            %{--</li>--}%
+                            %{--<li>--}%
+                                %{--<a class="submenu" href="${createLink(controller: "rack", action: "index")}">--}%
+                                    %{--<i class="halflings-icon white user"></i>--}%
+                                    %{--<span class="hidden-tablet"> Racks/Almira</span>--}%
+                                %{--</a>--}%
+                            %{--</li>--}%
+                            %{--<li>--}%
+                                %{--<a class="submenu" href="${createLink(controller: "shelve", action: "index")}">--}%
+                                    %{--<i class="halflings-icon white user"></i>--}%
+                                    %{--<span class="hidden-tablet"> Shelve</span>--}%
+                                %{--</a>--}%
+                            %{--</li>--}%
+                        %{--</ul>--}%
+                    %{--</li>--}%
+                %{--</sec:ifAnyGranted>--}%
 
 
                     <li>
@@ -165,17 +171,6 @@
                             </li>
                         </ul>
                     </li>
-
-                <sec:ifAnyGranted roles="SUPER_ADMIN,RECORD_ROOM_ADMIN,RECORD_ROOM_CLERK">
-                    <li>
-                        <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Summary Reports</span></a>
-                        <ul>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Stock File Summary  </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Issued Detail Reports  </span></a></li>
-                            <li><a class="submenu" href="#"><i class="halflings-icon white user"></i><span class="hidden-tablet"> Return Detail Reports  </span></a></li>
-                        </ul>
-                    </li>
-                </sec:ifAnyGranted>
 
                 <sec:ifAnyGranted roles="SUPER_ADMIN">
                     <li>
