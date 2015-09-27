@@ -8,13 +8,11 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
         <style>
         .matrixbox{
-            width: 6.8%;max-height: 100px;height: 100px;border: 0px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
+            width: 6.8%;max-height: 100px;height: 70px;border: 0px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
         }
         .imgbox{
             width: 3%;float: left;
             box-shadow: 0px 10px 20px #888888;
-        //height: 100%;
-
         }
         </style>
         <asset:script src="jquery-1.10.2.js"></asset:script>
@@ -29,12 +27,12 @@
             var imgtodrag = $('#top-img');
             var imgclone = imgtodrag.clone()
                     .offset({
-                        top: imgtodrag.offset().top,
-                        left: imgtodrag.offset().left
+                        'top': imgtodrag.offset().top,
+                        'left': imgtodrag.offset().left
                     })
                     .css({
                         'width': '100%',
-
+                        'position':'inherit',
                         'z-index': '100'
 
                     }).appendTo($(base));
