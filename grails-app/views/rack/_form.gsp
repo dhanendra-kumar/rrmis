@@ -28,23 +28,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'shelve', 'error')} ">
-	<label for="shelve">
-		<g:message code="rack.shelve.label" default="Shelve" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${rackInstance?.shelve?}" var="s">
-    <li><g:link controller="shelve" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="shelve" action="create" params="['rack.id': rackInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'shelve.label', default: 'Shelve')])}</g:link>
-</li>
-</ul>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'storeUnit', 'error')} required">
 	<label for="storeUnit">
 		<g:message code="rack.storeUnit.label" default="Store Unit" />
@@ -54,3 +37,19 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: rackInstance, field: 'shelve', 'error')} ">
+    <label for="shelve">
+        <g:message code="rack.shelve.label" default="Shelve" />
+
+    </label>
+
+    <ul class="one-to-many">
+        <g:each in="${rackInstance?.shelve?}" var="s">
+            <li><g:link controller="shelve" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+        </g:each>
+        <li class="add">
+            <g:link controller="shelve" action="create" params="['rack.id': rackInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'shelve.label', default: 'Shelve')])}</g:link>
+        </li>
+    </ul>
+
+</div>

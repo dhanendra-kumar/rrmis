@@ -191,12 +191,12 @@
                             <span class="hidden-tablet"> Office</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="${createLink(controller: "section", action: "index")}">
-                            <i class="icon-th-large"></i>
-                            <span class="hidden-tablet"> Section</span>
-                        </a>
-                    </li>
+                    %{--<li>--}%
+                        %{--<a href="${createLink(controller: "section", action: "index")}">--}%
+                            %{--<i class="icon-th-large"></i>--}%
+                            %{--<span class="hidden-tablet"> Section</span>--}%
+                        %{--</a>--}%
+                    %{--</li>--}%
                     <li>
                         <a href="${createLink(controller: "recordRoom", action: "index")}">
                             <i class="icon-columns"></i>
