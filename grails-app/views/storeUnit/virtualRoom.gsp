@@ -8,12 +8,11 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
         <style>
         .matrixbox{
-            width: 6.8%;max-height: 100px;height: 100px;border: 1px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
+            width: 6.8%;max-height: 100px;height: 70px;border: 1px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
         }
         .imgbox{
             width: 3%;float: left;
             box-shadow: 10px 10px 5px #888888;
-        //height: 100%;
 
         }
         </style>
@@ -53,7 +52,16 @@
                             });
 
                             jQuery('#imageToolsBox img')
-                                    .click(function(){pickImage=$(this);})
+                                    .click(function(){
+                                        pickImage=$(this);
+                                        var imgclone = pickImage.clone();
+
+                                        imgclone.offset({
+                                                    top: pickImage.offset().top-100,
+                                                    left: pickImage.offset().left+10
+                                                })
+                                                .appendTo($('body'));
+                                    })
                                     .mouseover(function() {jQuery(this).animate({width: '4%' }, 300);})
                                     .mouseout(function() {jQuery(this).animate({width: '3%'}, 300);
                                     });

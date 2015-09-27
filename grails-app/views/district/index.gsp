@@ -10,7 +10,7 @@
         <asset:stylesheet src="jquery.dataTables.css"></asset:stylesheet>
         <script>
             jQuery(document).ready(function(){
-                $('#user-list-table').DataTable();
+                $('#user-list-tables').DataTable();
             });
         </script>
 	</head>
@@ -35,7 +35,7 @@
 
 
 		</div>
-		<div id="list-district" class="content scaffold-list" role="main">
+		<div id="" class="" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
@@ -44,18 +44,19 @@
 			<thead>
 					<tr>
 					    <th>Id</th>
-						<g:sortableColumn property="name" title="${message(code: 'district.name.label', default: 'Name')}" />
-					
+                        <th>${message(code: 'district.name.label', default: 'Name')}</th>
+						%{--<g:sortableColumn property="name" title="${message(code: 'district.name.label', default: 'Name')}" />--}%
+					%{----}%
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${districtInstanceList}" status="i" var="districtInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
+
 						<td><g:link action="show" id="${districtInstance.id}">${fieldValue(bean: districtInstance, field: "id")}</g:link></td>
 
 						<td>${fieldValue(bean: districtInstance, field: "name")}</td>
-					
+
 					</tr>
 				</g:each>
 				</tbody>
