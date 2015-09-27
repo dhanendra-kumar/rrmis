@@ -8,7 +8,7 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
         <style>
         .matrixbox{
-            width: 6.8%;max-height: 100px;height: 70px;border: 0px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
+            width: 6.8%;max-height: 100px;height: 9vh;border: 0px solid #dddddd;float: left;margin-left: -15px;margin-top: -16px;
         }
         .imgbox{
             width: 3%;float: left;
@@ -32,7 +32,6 @@
                     })
                     .css({
                         'width': '100%',
-                        'position':'inherit',
                         'z-index': '100'
 
                     }).appendTo($(base));
