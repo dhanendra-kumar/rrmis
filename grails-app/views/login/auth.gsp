@@ -61,7 +61,7 @@
 
 </head>
 <body>
-<div class="container-fluid-full">
+<div class="container-fluid-full" style="background: linear-gradient(lavender, coral);">
     <div class="row-fluid">
 
         <div class="row-fluid">
